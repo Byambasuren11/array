@@ -28,8 +28,8 @@ function capitalizeNames(arr) {
   let firtsUpper = [];
   for (i = 0; i <= arr.length - 1; i++) {
     toLower.push(arr[i].toLowerCase());
-    toLower[i] = toLower[i].charAt(0).toUpperCase() + toLower[i].slice[1,toLower[i].length];
-    // firtsUpper.push(toLower[i].charAt(1));
+    toLower[i] = toLower[i].charAt(0).toUpperCase()+toLower[i].slice(1,toLower[i].length);
+   // firtsUpper.push(toLower[i].slice(1,toLower[i].length));
   }
   return toLower;
 }
@@ -39,6 +39,11 @@ console.log(capitalizeNames(["john", "JACOB", "jinGleHeimer", "schmidt"])); // [
 // 4) Make an array of strings of the names
 function namesOnly(arr) {
   // your code here
+  let nameOnly=[];
+  for(i=0; i<=arr.length-1;i++){
+    nameOnly.push(arr[i].name);
+  }
+  return nameOnly;
 }
 
 console.log(
@@ -70,30 +75,39 @@ console.log(
 // 5) Make an array of strings of the names saying whether or not they can go to The Matrix
 function makeStrings(arr) {
   // your code here
+  for(i=0; i<=arr.length-1;i++){
+    if(arr[i].age>=21){
+       arr[i]=arr[i].name+" can go to The Matrix"
+    }
+    else{
+         arr[i]=arr[i].name+" is under age!!"
+    }
+  }
+  return arr
 }
 
-// console.log(makeStrings([
-//     {
-//         name: "Angelina Jolie",
-//         age: 80
-//     },
-//     {
-//         name: "Eric Jones",
-//         age: 2
-//     },
-//     {
-//         name: "Paris Hilton",
-//         age: 5
-//     },
-//     {
-//         name: "Kayne West",
-//         age: 16
-//     },
-//     {
-//         name: "Bob Ziroll",
-//         age: 100
-//     }
-// ]));
+console.log(makeStrings([
+    {
+        name: "Angelina Jolie",
+        age: 80
+    },
+    {
+        name: "Eric Jones",
+        age: 2
+    },
+    {
+        name: "Paris Hilton",
+        age: 5
+    },
+    {
+        name: "Kayne West",
+        age: 16
+    },
+    {
+        name: "Bob Ziroll",
+        age: 100
+    }
+]));
 // ["Angelina Jolie can go to The Matrix",
 // "Eric Jones is under age!!",
 // "Paris Hilton is under age!!",
@@ -108,16 +122,26 @@ function makeStrings(arr) {
       doubleValues([5,1,2,3,10]) // [10,2,4,6,20]
    
   */
-function doubleValues(arr) {}
+function doubleValues(arr) {
+
+}
 // console.log(doubleValues([1,2,3]));
-/*
-  Write a function called onlyEvenValues which accepts an array and returns a new array with only the even values in the array passed to the function
-   
-  Examples:
-      onlyEvenValues([1,2,3]) // [2]
-      onlyEvenValues([5,1,2,3,10]) // [2,10]
-   
-  */
+
+//   Write a function called onlyEvenValues which accepts an array and returns a new array with only the even values in the array passed to the function
+function onlyEvenValues(arr){
+    let evenNumber=[];
+for(i=0;i<=arr.length-1;i++){
+    if(arr[i]%2===0){
+        evenNumber.push(arr[i]);
+    }
+}
+return evenNumber;
+}
+//   Examples:
+//       onlyEvenValues([1,2,3]) // [2]
+      // [2,10]
+   console.log(onlyEvenValues([5,1,2,3,10]));
+
 // function onlyEvenValues(arr) {}
 // console.log(onlyEvenValues([1, 2, 3, 4, 5, 7, 8, 9, 10, 11]));
 
@@ -140,8 +164,16 @@ function doubleValues(arr) {}
 // const string = "string";
 // console.log(string.split(""));
 // const arrayOfStings = string.split("");
+function originalFlavors(arr){
+    if(originalFlavors.length===31){
+        return true;
+    }
+    else {
+        return false;
+    }
+}
 
-const originalFlavors = [
+const arr = [
   "Banana Nut Fudge",
   "Black Walnut",
   "Burgundy Cherry",
@@ -174,7 +206,7 @@ const originalFlavors = [
   "Vanilla",
   "Vanilla Burnt Almond",
 ];
-
+console.log(originalFlavors(arr));
 /* Task 1: Confirm that the array is exactly 31 flavors. Your function should accept:
    
   (1) an array
@@ -285,3 +317,130 @@ function addFlavor(array, flavor) {}
 function getAverageWordLength(/*code here*/) {
   /*code here*/
 }
+// Exercise 1
+// Write a JavaScript function to sort three numbers in array. Return sorted array.
+// Sample numbers : [0, -1, 4]
+// Output : [4, 0, -1]
+// notes:
+//     https://www.geeksforgeeks.org/javascript-array-sort/
+//     https://www.w3schools.com/jsref/met_win_alert.asp
+ 
+// 1. write function ==> function will take array as input
+// 2. sort the numbers inside the array and return sorted array
+ 
+function sortedArray(array) {
+    array.sort(function(a, b){return a-b} );
+    array.reverse();
+    return array;
+}
+
+let example = [10, 20, 100]
+10, 100, 20  
+console.log(sortedArray([5, 7, 10, -10, 56]));
+// ==> [56, 10, 7,5,-10]
+
+ 
+ 
+ 
+// Exercise 1
+ 
+// Create a function that will display the smallest value in the array.
+function findSmallest(arr){
+    arr.sort(function(a, b){return a-b} );
+    return arr[0];
+}
+// Example:
+console.log(findSmallest([30, 45, 60, 7]));
+// > 1
+ 
+ 
+// Exercise 2
+ 
+// Create a function that will accept an array, check the data type of each element. The function will delete string elements and will return a the new array
+ function numbersOnly(arr){
+    let onlyNumber=[];
+   //console.log(typeof arr[0])
+    for(i=0; i<=arr.length-1;i++){
+        if((typeof arr[i])==="number"){
+            onlyNumber.push(arr[i]);
+        }
+    }
+    return onlyNumber;
+ }
+// Example:
+ console.log(numbersOnly(['text', 3, 7, 'github', 13, 'dev']));
+// > [ 3, 7, 13 ]
+ 
+// Exercise 3
+ 
+// Create a function that will accept an array and do the following:
+// Get the lowest element
+// Get the highest element
+// Get the length of array
+// Get the Average of all element;
+// Store these criteria in a new array
+ function minMaxLengthAverage(arr){
+    let push=[];
+    let sum=0;
+    arr.sort(function(a, b){return a-b});
+    push.push(arr[0]);
+    push.push(arr[arr.length-1])
+    for(i=0;i<=arr.length-1;i++){
+        sum+=arr[i];
+    }
+    push.push(arr.length);
+    push.push(sum/arr.length);
+    return push;
+ }
+// Example:
+console.log(minMaxLengthAverage([7, 13, 3, 77, 100]));
+// > [ 3, 100, 5, 40 ]
+ 
+// Exercise 4
+ 
+// Count the number of Words
+// Return how many words was given
+function countWords(sen){
+    let count=0;
+    for(i=0;i<=sen.length-1;i++){
+        if(sen[i]===" "){
+            count++;
+        }
+    }
+    return count+1;
+ }
+// Example:
+console.log( countWords('hello from kbpsystem!'));
+// > 3
+ 
+// Exercise 5
+ 
+// Multiply by Length
+// Multiply all elements in an array by it's length
+ function multiplyByLength(arr){
+    for(i=0;i<=arr.length-1;i++){
+        arr[i]*=arr.length;
+    }
+    return arr;
+ }
+// Example:
+ console.log(multiplyByLength([4,1,1]));
+// > [12, 3, 3]
+ 
+// Exercise 6
+ 
+// Find the correct Index location
+// Return the index location of an element from a given array. First argument is the array you'd like to search and the second one is the element (either string/number) to look for.
+ function findIndex(arr,arrElement){
+    for(i=0;i<=arr.length;i++){
+        if(arr[i]===arrElement){
+            return arr.indexOf(arr[i]);
+        }
+    }
+ }
+// Example:
+ console.log(findIndex(['github', 'gitlab', 'bitbucket', 'apollo'], 'gitlab'));
+// > 1
+ 
+
+ 
